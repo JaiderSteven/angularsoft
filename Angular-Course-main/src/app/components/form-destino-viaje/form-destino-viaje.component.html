@@ -1,0 +1,28 @@
+<form 
+    [formGroup]="formGroup"
+    (ngSubmit)="guardar(formGroup.controls['nombre'].value,formGroup.controls['url'].value)"
+    >
+    <div class="form-group">
+        <label for="nombre" class="style-labels">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ingresar nombre..." 
+        formControlName="nombre" />
+        <ul>
+            <li *ngFor="let resultado of busqueda;">{{resultado}}</li>
+        </ul>
+        <div class="styles-errors mt-2" 
+        [hidden]="!formGroup.controls['nombre'].hasError('invalidNombre') || formGroup.controls['nombre'].pristine"
+        >- Nombre invalido</div>
+        <div class="styles-errors mt-2"
+        [hidden]="!formGroup.controls['nombre'].hasError('lengthInvalido') || formGroup.controls['nombre'].pristine"
+        >- El nombre debe tener por lo menos {{minLongitud}} caracteres.</div>
+    </div>
+    <div class="form-group">
+        <label for="image-url" class="style-labels">Imagen Url</label>
+        <input type="text" class="form-control" id="image-url" placeholder="Ingrese la url de la imagen..."
+        formControlName="url" />
+        <div class="styles-errors mt-2"
+        [hidden]="formGroup.controls['url'].valid || formGroup.controls['url'].pristine"
+        >- Url invalida</div>
+    </div>
+    <button type="submit" class="btn btn-primary styles-guardar" [disabled]="formGroup.invalid">Guardar</button>
+</form>

@@ -1,0 +1,21 @@
+.styles-guardar {
+    margin-top: 1rem;
+}
+
+.style-labels {
+    margin: 5px;
+}
+
+.styles-errors {
+    color:rgb(214, 50, 83);
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.ng-invalid {
+    border-color: rgb(214, 50, 83);
+}
+
+.ng-pristine{
+    border-color: #dee2e6;
+}

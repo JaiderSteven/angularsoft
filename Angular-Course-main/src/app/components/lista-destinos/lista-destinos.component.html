@@ -1,0 +1,35 @@
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <span class="anchor" id="formLogin"></span>
+            <div class="card card-outline-secondary">
+                <div class="card-header">
+                    <h3 class="mb-0">Wishlist</h3>
+                </div>
+                <div class="card-body">
+                    <app-form-destino-viaje (onItemAdded)="agregado($event)"></app-form-destino-viaje>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="mb-t">
+
+    <div class="row">
+        <app-destino-viaje 
+            *ngFor="let destino of all; let i = index" 
+            [destino]="destino"
+            [idx]="i + 1"
+            (clicked)="elegir($event)"
+        ></app-destino-viaje>
+    </div>
+
+    <hr class="mb-t">
+
+    <div class="row">
+        <h2>Actividad</h2>
+        <ul>
+            <li *ngFor="let favorito of updates;">{{favorito}}</li>
+        </ul>
+    </div>
+</div>
